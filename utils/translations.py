@@ -1,10 +1,11 @@
 from utils.settings import settings
 
+# English Translations
 en = {
     "add_reminder": "Add Reminder",
     "settings": "Settings",
     "reminder_description": "Reminder description",
-    "days_of_week": "Days of the week",
+    "days_of_week": "Days of the Week",
     "days_of_week_list": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     "recurrence": "Recurrence",
     "recurring": "Recurring",
@@ -33,6 +34,7 @@ en = {
     "cancel": "Cancel"
 }
 
+# French Translations
 fr = {
     "add_reminder": "Ajouter un rappel",
     "settings": "Paramètres",
@@ -67,6 +69,13 @@ fr = {
 }
 
 def get_translation(key):
+    """
+    Retrieve the translated text for a given key based on the current language setting.
+    Parameters:
+        key (str): The key for the text to translate.
+    Returns:
+        str or list: The translated text or list of texts.
+    """
     lang = settings.get('language', 'en')
     if lang == 'fr':
         return fr.get(key, key)
@@ -75,6 +84,11 @@ def get_translation(key):
 _ = get_translation
 
 def set_language(lang):
+    """
+    Set the application language and update the translation function.
+    Parameters:
+        lang (str): The language code ('en' for English, 'fr' for French).
+    """
     settings.set('language', lang)
     global _
     _ = get_translation

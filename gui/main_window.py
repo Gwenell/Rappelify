@@ -1,3 +1,5 @@
+# gui/main_window.py
+
 from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QStackedWidget
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QColor
@@ -8,7 +10,6 @@ from core.notification import NotificationManager
 from themes.theme_manager import ThemeManager
 from utils.settings import settings
 from utils.translations import _
-
 
 class MainWindow(QMainWindow):
     def __init__(self, app, sync_manager):

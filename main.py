@@ -1,7 +1,7 @@
 import sys
 import os
 
-# Ajouter le répertoire du projet au sys.path
+# Add the project directory to sys.path
 project_root = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, project_root)
 
@@ -12,23 +12,21 @@ from core.sync import SyncManager
 from utils.settings import settings
 from themes.theme_manager import ThemeManager
 
-
 def main():
     app = QApplication(sys.argv)
 
-    # Initialiser les paramètres
+    # Initialize settings
     settings.load_settings()
 
-    # Initialiser le gestionnaire de synchronisation
+    # Initialize the synchronization manager
     sync_manager = SyncManager()
 
-    # Créer et afficher la fenêtre principale
+    # Create and display the main window
     window = MainWindow(app, sync_manager)
-    window.apply_settings()  # Appliquer les paramètres initiaux, y compris le thème
+    window.apply_settings()  # Apply initial settings, including the theme
     window.show()
 
     return app.exec_()
-
 
 if __name__ == "__main__":
     sys.exit(main())
